@@ -15,7 +15,7 @@ data class Share(
     private val entries: MutableList<Entry> = mutableListOf()
 ) : Serializable, GenericEntry() {
     override val name: String?
-        get() = url?.let { urlPattern.matcher(url).replaceFirst("$1") }
+        get() = url?.let { urlPattern.matcher(url!!).replaceFirst("$1") }
 
     fun getEntries(): List<Entry> {
         return entries.toList()
